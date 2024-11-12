@@ -40,7 +40,7 @@ def extract_prices(url):
         # Attendre que les annonces soient chargées
         wait = WebDriverWait(driver, 20)
         
-        # Localiser les éléments contenant les prix
+        # Localiser les éléments contenant les prixdzqpdpkdpqdl
         prix_elements = wait.until(EC.presence_of_all_elements_located(
             (By.CSS_SELECTOR, 'span.ad-price__the-price')  # Ajuste ce sélecteur si nécessaire
         ))
