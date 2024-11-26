@@ -1,3 +1,12 @@
+#!/usr/bin/env python3
+
+#!wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/chrome.deb
+#!sudo apt-get update
+#!sudo -E apt-get install -y /tmp/chrome.deb
+#!pip install chromedriver-autoinstaller selenium
+
+#import chromedriver_autoinstaller
+#chromedriver_autoinstaller.install()##
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -5,11 +14,11 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from bs4 import BeautifulSoup
 import csv
 import time
 import re
 import random
+
 
 # URL de base de la recherche
 BASE_URL = "https://www.bienici.com/recherche/achat/paris-75000?tri=publication-desc"
