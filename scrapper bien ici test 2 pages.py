@@ -4,7 +4,7 @@
 #!sudo apt-get update
 #!sudo -E apt-get install -y /tmp/chrome.deb
 #!pip install chromedriver-autoinstaller selenium
-
+#ok
 #import chromedriver_autoinstaller
 #chromedriver_autoinstaller.install()##
 from selenium import webdriver
