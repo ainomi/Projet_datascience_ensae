@@ -4,9 +4,9 @@
 #!sudo apt-get update
 #!sudo -E apt-get install -y /tmp/chrome.deb
 #!pip install chromedriver-autoinstaller selenium
-#ok
-#import chromedriver_autoinstaller
-#chromedriver_autoinstaller.install()##
+
+import chromedriver_autoinstaller
+chromedriver_autoinstaller.install()##
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -53,9 +53,8 @@ def extract_prices(url):
         prix_elements = wait.until(EC.presence_of_all_elements_located(
             (By.CSS_SELECTOR, 'span.ad-price__the-price')  # Ajuste ce sélecteur si nécessaire
         ))
-        
         print(f"Nombre d'éléments de prix trouvés : {len(prix_elements)}")
-        
+
         prices = []
         for prix_element in prix_elements:
             prix_text = prix_element.text.strip().replace('\xa0', ' ').replace(',', '.')
