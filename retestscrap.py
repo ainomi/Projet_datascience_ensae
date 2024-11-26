@@ -15,7 +15,7 @@ import re
 import random
 import os
 
-# URL de base de la rechercheqdqzddzqdzqdqd
+# URL de base de la recherche
 BASE_URL = "https://www.bienici.com/recherche/achat/paris-75000?tri=publication-desc"
 
 # Configurer les options de Chrome
@@ -48,7 +48,7 @@ def extract_listings(url, starting_id):
         listings = wait.until(EC.presence_of_all_elements_located(
             (By.CSS_SELECTOR, 'div.adOverview.ad-overview-gallery__ad-overview')  # Sélecteur ajusté
         ))
-        print(f"Nombre d'annonces trouvées : {len(listings)}")
+        
 
         data = []
         listing_id = starting_id  # Commencer l'ID à partir du starting_id
@@ -59,33 +59,91 @@ def extract_listings(url, starting_id):
                 # Extraire l'ID de l'annonce
                 ad_id = listing.get_attribute('data-realestateadid')
                 if not ad_id:
-                    ad_id = listing_id  # Fallback si l'attribut n'est pas trouvé
+                    ad_id = f"custom_id_{listing_id}"  # Fallback si l'attribut n'est pas trouvé
 
                 # Extraire le titre complet (type, pièces, surface)
-                title_element = listing.find_element(By.CSS_SELECTOR, 'span.ad-overview-details__ad-title--small')
-                title_text = title_element.text.strip()  # Exemple : "Appartement 5 pièces 97 m²"
+                try:
+                    title_element = listing.find_element(By.CSS_SELECTOR, 'span.ad-overview-details__ad-title--small')
+                    title_text = title_element.text.strip()  # Exemple : "Appartement 5 pièces 97 m²" ou "Studio 30 m²"
+                    
+                except Exception as e:
+                    print(f"Erreur lors de l'extraction du titre : {e}")
+                    title_text = ""
 
-                # Utiliser une expression régulière pour extraire les différentes parties
-                title_match = re.match(r'^(Appartement|Maison)\s+(\d+)\s+pièces\s+(\d+)\s*m²$', title_text)
-                if title_match:
-                    property_type = title_match.group(1)
-                    rooms = title_match.group(2)
-                    area = title_match.group(3)
+                # Initialiser les variables avec 'NaN'
+                property_type = "NaN"
+                rooms = "NaN"
+                area = "NaN"
+
+                # Vérifier le type de bien et extraire les informations en conséquence
+                if "pièce" in title_text.lower():
+                    # Format avec nombre de pièces, par exemple "Appartement 5 pièces 97 m²"
+                    parts = title_text.split()
+                    try:
+                        property_type = parts[0]  # "Appartement", "Maison", "Duplex", etc.
+                        # Trouver l'index de "pièce" ou "pièces"
+                        if "pièce" in parts:
+                            rooms_index = parts.index("pièce")
+                        elif "pièces" in parts:
+                            rooms_index = parts.index("pièces")
+                        else:
+                            rooms_index = -1  # Non trouvé
+
+                        if rooms_index > 0:
+                            rooms = parts[rooms_index - 1]
+                        else:
+                            rooms = "NaN"
+
+                        # La surface devrait être le mot après "pièce(s)"
+                        if rooms_index + 2 < len(parts):
+                            area_str = parts[rooms_index + 1]  # Par exemple, "97"
+                            # Vérifier si le prochain mot est "m²"
+                            if parts[rooms_index + 2].lower().startswith("m²"):
+                                area = area_str
+                            else:
+                                area = "NaN"
+                        else:
+                            area = "NaN"
+                    except (ValueError, IndexError) as e:
+                        print(f"Erreur lors de l'extraction avec pièces : {e}")
+                        property_type = parts[0] if len(parts) > 0 else "NaN"
+                        rooms = "NaN"
+                        area = "NaN"
                 else:
-                    # Si le format ne correspond pas, assigner des valeurs par défaut ou continuer
-                    print(f"Format du titre inattendu : '{title_text}'")
-                    property_type = ""
-                    rooms = ""
-                    area = ""
-                    # Vous pouvez choisir de sauter cette annonce ou d'essayer une autre méthode d'extraction
+                    # Format sans nombre de pièces, par exemple "Studio 30 m²"
+                    parts = title_text.split()
+                    try:
+                        property_type = parts[0]  # "Studio", "Duplex", etc.
+                        # Supposer que la surface est le dernier élément
+                        if len(parts) >= 2:
+                            area_str = parts[-2]  # Avant "m²"
+                            if parts[-1].lower().startswith("m²"):
+                                area = area_str
+                            else:
+                                area = "NaN"
+                        else:
+                            area = "NaN"
+                    except (ValueError, IndexError) as e:
+                        print(f"Erreur lors de l'extraction sans pièces : {e}")
+                        property_type = "NaN"
+                        rooms = "NaN"
+                        area = "NaN"
 
                 # Extraire la localisation
-                location_element = listing.find_element(By.CSS_SELECTOR, 'span.ad-overview-details__address-title--small')
-                location_text = location_element.text.strip()  # Exemple : "75014 Paris 14e (Jean Moulin - Porte d'Orléans)"
+                try:
+                    location_element = listing.find_element(By.CSS_SELECTOR, 'span.ad-overview-details__address-title--small')
+                    location_text = location_element.text.strip()  # Exemple : "75014 Paris 14e (Jean Moulin - Porte d'Orléans)"
+                except Exception as e:
+                    print(f"Erreur lors de l'extraction de la localisation : {e}")
+                    location_text = "NaN"
 
                 # Extraire le prix
-                price_element = listing.find_element(By.CSS_SELECTOR, 'span.ad-price__the-price')
-                price_text = price_element.text.strip().replace('\xa0', ' ').replace(',', '.')
+                try:
+                    price_element = listing.find_element(By.CSS_SELECTOR, 'span.ad-price__the-price')
+                    price_text = price_element.text.strip().replace('\xa0', ' ').replace(',', '.')
+                except Exception as e:
+                    print(f"Erreur lors de l'extraction du prix : {e}")
+                    price_text = "NaN"
 
                 # Stocker les données dans un dictionnaire
                 data.append({
@@ -129,7 +187,7 @@ def save_to_csv(data, filename="listings.csv"):
             writer.writeheader()
         for entry in data:
             writer.writerow(entry)
-    print(f"{len(data)} annonces enregistrées dans {filename}")
+    
 
 def get_next_page_url(current_url, next_page_number):
     """
@@ -147,10 +205,10 @@ def main():
     all_data = []
     page_number = 1
     listing_id = 1  # Initialiser l'ID de l'annonce
-    while page_number < 3:  # Vous pouvez augmenter le nombre de pages ici
-        print(f"\n--- Scraping de la page {page_number} ---")
+    while True:  # Vous pouvez augmenter le nombre de pages ici
+        
         url = get_next_page_url(BASE_URL, page_number)
-        print(f"URL de la page courante : {url}")
+       
 
         data, listing_id = extract_listings(url, listing_id)
         if not data:
@@ -164,11 +222,11 @@ def main():
 
         # Ajouter un délai aléatoire entre les requêtes pour éviter d'être détecté
         sleep_time = random.uniform(2, 5)
-        print(f"Attente de {sleep_time:.2f} secondes avant la prochaine requête...")
+        
         time.sleep(sleep_time)
 
     print(f"\nTotal des annonces collectées : {len(all_data)}")
     driver.quit()
 
 if __name__ == "__main__":
-        main()
+    main()
