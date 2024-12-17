@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_4a5a8f51700806cefb8391a6f074edba {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_4a5a8f51700806cefb8391a6f074edba" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_4a5a8f51700806cefb8391a6f074edba = L.map(
+                "map_4a5a8f51700806cefb8391a6f074edba",
+                {
+                    center: [48.8566, 2.3522],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_97b9d030c03a93ccebd995318eda6eab = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_97b9d030c03a93ccebd995318eda6eab.addTo(map_4a5a8f51700806cefb8391a6f074edba);
+        
+    
+            var marker_f3b7575e8c665efb03a0ca5689463aeb = L.marker(
+                [48.8597916, 2.3466756],
+                {}
+            ).addTo(map_4a5a8f51700806cefb8391a6f074edba);
+        
+    
+            var icon_c99b0ebfaa7651770919ca659e0e5092 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_f3b7575e8c665efb03a0ca5689463aeb.setIcon(icon_c99b0ebfaa7651770919ca659e0e5092);
+        
+    
+        var popup_272519b7f31f3f9f56f4c7c5b405437c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_dd2d845012e06a6974acb6f36c93fcb4 = $(`<div id="html_dd2d845012e06a6974acb6f36c93fcb4" style="width: 100.0%; height: 100.0%;">Châtelet, Paris</div>`)[0];
+                popup_272519b7f31f3f9f56f4c7c5b405437c.setContent(html_dd2d845012e06a6974acb6f36c93fcb4);
+            
+        
+
+        marker_f3b7575e8c665efb03a0ca5689463aeb.bindPopup(popup_272519b7f31f3f9f56f4c7c5b405437c)
+        ;
+
+        
+    
+    
+            var marker_0dfb8be26a6ab20545dc6846f96f7557 = L.marker(
+                [48.863584700000004, 2.3362042200938715],
+                {}
+            ).addTo(map_4a5a8f51700806cefb8391a6f074edba);
+        
+    
+            var icon_81796567ec8e9b8d0b27273fdc1b7f41 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0dfb8be26a6ab20545dc6846f96f7557.setIcon(icon_81796567ec8e9b8d0b27273fdc1b7f41);
+        
+    
+        var popup_3a2a1a7dc10834de1ee09ff94942663a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ffca96f116ef80f0157965edb1a70566 = $(`<div id="html_ffca96f116ef80f0157965edb1a70566" style="width: 100.0%; height: 100.0%;">Palais Royal, Paris</div>`)[0];
+                popup_3a2a1a7dc10834de1ee09ff94942663a.setContent(html_ffca96f116ef80f0157965edb1a70566);
+            
+        
+
+        marker_0dfb8be26a6ab20545dc6846f96f7557.bindPopup(popup_3a2a1a7dc10834de1ee09ff94942663a)
+        ;
+
+        
+    
+    
+            var marker_f12470bd7983e50ea18ead4098c5e568 = L.marker(
+                [48.85655255, 2.333331104782813],
+                {}
+            ).addTo(map_4a5a8f51700806cefb8391a6f074edba);
+        
+    
+            var icon_b7a60af0970d45935c12ec0e4d5e047a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_f12470bd7983e50ea18ead4098c5e568.setIcon(icon_b7a60af0970d45935c12ec0e4d5e047a);
+        
+    
+        var popup_eb17feb965b1fc836573ff68c151eea8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d2a588737da13c923a8a2e4b7bbe263a = $(`<div id="html_d2a588737da13c923a8a2e4b7bbe263a" style="width: 100.0%; height: 100.0%;">Saint-Germain, Paris</div>`)[0];
+                popup_eb17feb965b1fc836573ff68c151eea8.setContent(html_d2a588737da13c923a8a2e4b7bbe263a);
+            
+        
+
+        marker_f12470bd7983e50ea18ead4098c5e568.bindPopup(popup_eb17feb965b1fc836573ff68c151eea8)
+        ;
+
+        
+    
+    
+            var marker_022ebc107c8925526f539b8027213508 = L.marker(
+                [48.86690005, 2.3285489140926545],
+                {}
+            ).addTo(map_4a5a8f51700806cefb8391a6f074edba);
+        
+    
+            var icon_8a13a127607a15a24315179993824385 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_022ebc107c8925526f539b8027213508.setIcon(icon_8a13a127607a15a24315179993824385);
+        
+    
+        var popup_c42dcf6023ee4bb3a34677be4cc2a686 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e428d82cb1bc3f9a42c31ea7b92b0fb7 = $(`<div id="html_e428d82cb1bc3f9a42c31ea7b92b0fb7" style="width: 100.0%; height: 100.0%;">Vendôme, Paris</div>`)[0];
+                popup_c42dcf6023ee4bb3a34677be4cc2a686.setContent(html_e428d82cb1bc3f9a42c31ea7b92b0fb7);
+            
+        
+
+        marker_022ebc107c8925526f539b8027213508.bindPopup(popup_c42dcf6023ee4bb3a34677be4cc2a686)
+        ;
+
+        
+    
+    
+            var marker_7debbef5d24a135b23afbf100ce96684 = L.marker(
+                [48.869135150000005, 2.332908770335507],
+                {}
+            ).addTo(map_4a5a8f51700806cefb8391a6f074edba);
+        
+    
+            var icon_22a16d5286ac5b9d53f2c9ad4fa1c09d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_7debbef5d24a135b23afbf100ce96684.setIcon(icon_22a16d5286ac5b9d53f2c9ad4fa1c09d);
+        
+    
+        var popup_381730d5d2445072285dd1873b29aade = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_10f8c141824d9d1a1209b0efc5bc1ccd = $(`<div id="html_10f8c141824d9d1a1209b0efc5bc1ccd" style="width: 100.0%; height: 100.0%;">Gaillon, Paris</div>`)[0];
+                popup_381730d5d2445072285dd1873b29aade.setContent(html_10f8c141824d9d1a1209b0efc5bc1ccd);
+            
+        
+
+        marker_7debbef5d24a135b23afbf100ce96684.bindPopup(popup_381730d5d2445072285dd1873b29aade)
+        ;
+
+        
+    
+    
+            var marker_3a366fedd6a8a4550c9340e065055b75 = L.marker(
+                [48.85424375, 2.3268829064838443],
+                {}
+            ).addTo(map_4a5a8f51700806cefb8391a6f074edba);
+        
+    
+            var icon_5979fa002bb7976e079adb033051c1ae = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_3a366fedd6a8a4550c9340e065055b75.setIcon(icon_5979fa002bb7976e079adb033051c1ae);
+        
+    
+        var popup_2945c14d03bcdf750fd9e670a650b09d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_94af7d15f413efa32d75447cb6bb0214 = $(`<div id="html_94af7d15f413efa32d75447cb6bb0214" style="width: 100.0%; height: 100.0%;">Saint-Thomas d'Aquin, Paris</div>`)[0];
+                popup_2945c14d03bcdf750fd9e670a650b09d.setContent(html_94af7d15f413efa32d75447cb6bb0214);
+            
+        
+
+        marker_3a366fedd6a8a4550c9340e065055b75.bindPopup(popup_2945c14d03bcdf750fd9e670a650b09d)
+        ;
+
+        
+    
+    
+            var marker_9da627bfe1998059d57e60e82f195dff = L.marker(
+                [48.8572394, 2.3471199],
+                {}
+            ).addTo(map_4a5a8f51700806cefb8391a6f074edba);
+        
+    
+            var icon_2c036fbfcd3f549b4f84132572a56246 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_9da627bfe1998059d57e60e82f195dff.setIcon(icon_2c036fbfcd3f549b4f84132572a56246);
+        
+    
+        var popup_161131f693f204b21140d70fd0a5f732 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0b9a0ead22b97cc5868b73dc3ce08867 = $(`<div id="html_0b9a0ead22b97cc5868b73dc3ce08867" style="width: 100.0%; height: 100.0%;">75001 Paris 1er, Paris</div>`)[0];
+                popup_161131f693f204b21140d70fd0a5f732.setContent(html_0b9a0ead22b97cc5868b73dc3ce08867);
+            
+        
+
+        marker_9da627bfe1998059d57e60e82f195dff.bindPopup(popup_161131f693f204b21140d70fd0a5f732)
+        ;
+
+        
+    
+    
+            var marker_cfd0098f9b25fd3c924a7aa9e600c697 = L.marker(
+                [48.867518, 2.3465656],
+                {}
+            ).addTo(map_4a5a8f51700806cefb8391a6f074edba);
+        
+    
+            var icon_d197504d47515a6c6d75fe93ba4cee1f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_cfd0098f9b25fd3c924a7aa9e600c697.setIcon(icon_d197504d47515a6c6d75fe93ba4cee1f);
+        
+    
+        var popup_abdbbc49df2b6d32bcb1919f8e210519 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9b6732664ac3900528b7037792d977f4 = $(`<div id="html_9b6732664ac3900528b7037792d977f4" style="width: 100.0%; height: 100.0%;">Sentier, Paris</div>`)[0];
+                popup_abdbbc49df2b6d32bcb1919f8e210519.setContent(html_9b6732664ac3900528b7037792d977f4);
+            
+        
+
+        marker_cfd0098f9b25fd3c924a7aa9e600c697.bindPopup(popup_abdbbc49df2b6d32bcb1919f8e210519)
+        ;
+
+        
+    
+    
+            var marker_a31ccc29a59fbb4d60d8806d606faebb = L.marker(
+                [48.8641678, 2.3467038],
+                {}
+            ).addTo(map_4a5a8f51700806cefb8391a6f074edba);
+        
+    
+            var icon_e04be4a5cc97908fd30dc3c691bd0498 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_a31ccc29a59fbb4d60d8806d606faebb.setIcon(icon_e04be4a5cc97908fd30dc3c691bd0498);
+        
+    
+        var popup_cf59ed311099aea121acecb2ce3c47a0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b97e5427ac751ef28f2608db37cb0095 = $(`<div id="html_b97e5427ac751ef28f2608db37cb0095" style="width: 100.0%; height: 100.0%;">Montorgueil, Paris</div>`)[0];
+                popup_cf59ed311099aea121acecb2ce3c47a0.setContent(html_b97e5427ac751ef28f2608db37cb0095);
+            
+        
+
+        marker_a31ccc29a59fbb4d60d8806d606faebb.bindPopup(popup_cf59ed311099aea121acecb2ce3c47a0)
+        ;
+
+        
+    
+    
+            var marker_4683f9866df319207f98380c7e6ada75 = L.marker(
+                [48.8588897, 2.3200410217200766],
+                {}
+            ).addTo(map_4a5a8f51700806cefb8391a6f074edba);
+        
+    
+            var icon_b906c66b5b3a70585c3ba2f01e97821b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4683f9866df319207f98380c7e6ada75.setIcon(icon_b906c66b5b3a70585c3ba2f01e97821b);
+        
+    
+        var popup_343167b05efad6252e9b35018adfe7e3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_dcf490da14c1072aafce8e60ebf03e6a = $(`<div id="html_dcf490da14c1072aafce8e60ebf03e6a" style="width: 100.0%; height: 100.0%;">75002 Paris 2e, Paris</div>`)[0];
+                popup_343167b05efad6252e9b35018adfe7e3.setContent(html_dcf490da14c1072aafce8e60ebf03e6a);
+            
+        
+
+        marker_4683f9866df319207f98380c7e6ada75.bindPopup(popup_343167b05efad6252e9b35018adfe7e3)
+        ;
+
+        
+    
+</script>
+</html>
