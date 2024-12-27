@@ -1,4 +1,4 @@
-id,Type,Nb_chambre,loc,surface,prix
+id,type,nb_pieces,loc,surface,prix
 apimo-85473173,Appartement,1,Châtelet,29,364000
 hektor-Les-4-Quartiers-383,Appartement,1,Châtelet,23,301000
 hektor-PARISLUXURYHOMES-4007,Appartement,5,Palais Royal,106,2490000
