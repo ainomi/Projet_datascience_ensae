@@ -243,7 +243,7 @@ def main():
     #    pass
     
     all_data = []
-    for arrondissement in range(8,21):
+    for arrondissement in range(18,21):
         Base_url=get_next_sector(BASE_URL, arrondissement)
         page_number = 1
         listing_id = 1  # Initialiser l'ID de l'annonce
