@@ -1,6 +1,6 @@
 # Projet_DataScience_ENSAE #
 ## Estimation du prix d'un bien immobilier à Paris selon ses caractéristiques ##
-### réalisé par Maxime Chansat, Anaïs Augé et Jules Hajjar
+### Réalisé par Maxime Chansat, Anaïs Augé et Jules Hajjar
 
 Ce projet a pour but de construire un ou plusieurs modèles pour estimer le prix d'un bien immobilier dans la ville de Paris. Par "bien immobilier", on entend un logement destiné principalement à l'habitation (comme un appartement, une maison...).
 Afin d'obtenir des données d'annonces immobilières, nous avons procédé au webscraping du site suivant : https://www.bienici.com/. Il s'agit d'une plateforme immobilière créée par un consortium regroupant les principaux acteurs du secteur immobilier français (comme ORPI, La Forêt, Nexity, Century 21, Foncia...).
