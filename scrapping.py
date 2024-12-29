@@ -1,5 +1,5 @@
+# si l'éxécution ne marche pas, veuillez enlever les "#" des 3 lignes ci-dessous et relancer
 #!/usr/bin/env python3
-
 # import chromedriver_autoinstaller
 # chromedriver_autoinstaller.install()
 from selenium import webdriver
