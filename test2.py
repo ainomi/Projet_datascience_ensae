@@ -1,1 +1,0 @@
-import os; os.remove("Projet_datascience_ensae/try2.csv")
