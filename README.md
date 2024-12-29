@@ -1,4 +1,4 @@
-# Projet_DataScience_ENSAE #
+# Projet DataScience ENSAE #
 ## Estimation du prix d'un bien immobilier à Paris selon ses caractéristiques ##
 ### Réalisé par Maxime Chansat, Anaïs Augé et Jules Hajjar
 
