@@ -11,7 +11,7 @@ De ce fait, un fichier intermédiaire "listings.csv", correspondant au résultat
 
 Afin de correctement exécuter le notebook, voici les prérequis :
 
-- Disposer des packages : selenium, webdriver_manager, csv, time, random, os, pandas, numpy, re, collections, s3fs, geopy, functools, dill, matplotlib, scipy.stats, seaborn, folium, sklearn, xgboost. Ces packages peuvent être installés en exécutant la cellule d'installation des packages sur le notebook principal.
+- Disposer des packages : selenium, webdriver_manager, pandas, numpy, s3fs, geopy, dill, matplotlib, scipy.stats, seaborn, folium, sklearn, xgboost. Ces packages peuvent être installés en exécutant la cellule d'installation des packages sur le notebook principal.
 - Si vous êtes sur le SSP Cloud : il se peut que l'exécution du scraping produise une erreur en raison de l'OS du SSP Cloud. Ainsi, si c'est le cas pour vous, veuillez enlever les "#" devant les premières lignes dans le fichier "scraping.py".
 
 Sources de données :
