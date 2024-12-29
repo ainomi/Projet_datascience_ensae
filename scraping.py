@@ -1,5 +1,5 @@
-# si l'éxécution ne marche pas, veuillez enlever les "#" des 3 lignes ci-dessous et relancer
 #!/usr/bin/env python3
+# si l'éxécution ne marche pas, veuillez enlever les "#" des 2 lignes ci-dessous et relancer
 # import chromedriver_autoinstaller
 # chromedriver_autoinstaller.install()
 from selenium import webdriver
@@ -207,7 +207,7 @@ def get_next_page_url(current_url, next_page_number):
 
 def get_next_sector(current_url, next_sector_num):
     """
-    Génère l'URL de la page suivante en ajoutant le paramètre 'page'.
+    Génère l'URL de l'arrondissement suivant.
     """
     if next_sector_num == 1:
         return current_url
@@ -243,14 +243,11 @@ def stockage():
     target_path = f"{MY_BUCKET}/Diffusion/"
     try:
         fs.put("Projet_datascience_ensae/listings.csv", target_path)
-        print(f"File uploaded to {target_path}")
-    except Exception as e:
-        print(f"Error uploading file: {e}")
-           
+        print(f"Fichier upload sur {target_path}")
 
 def main():
     all_data = []
-    for arrondissement in range(18,21):
+    for arrondissement in range(1,21):
         Base_url=get_next_sector(BASE_URL, arrondissement)
         page_number = 1
         listing_id = 1  # Initialiser l'ID de l'annonce
