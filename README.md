@@ -13,7 +13,7 @@ Afin de correctement exécuter le notebook, voici les prérequis :
 
 - Disposer des packages : selenium, webdriver_manager, chromedriver-autoinstaller, pandas, numpy, s3fs, geopy, dill, matplotlib, scipy.stats, seaborn, folium, sklearn, xgboost. Ces packages peuvent être installés en exécutant la cellule d'installation des packages sur le notebook principal.
 - Si vous êtes sur le SSP Cloud : il se peut que l'exécution du scraping produise une erreur en raison de l'OS du SSP Cloud. Ainsi, si c'est le cas pour vous, veuillez suivre les indications des commentaires des premières lignes dans le fichier "scraping.py".
-- Si vous êtes sur le SSP Cloud : Il est probable que le service de géocodage de geopy interagisse mal avec SSP Cloud. Il semblerait que pour un certain nombre de requêtes, celles-ci expirent à cause d'un dépassement du temps limite. Dans ce cas là, il est préférable d'utiliser une version local de VScode. à cet effet nous avons laissé un csv du scraping sur le github (au cas où) que nous nommons "listings_no_SSP_Cloud.csv" que vous devrez renommer "listings".
+- Si vous êtes sur le SSP Cloud : Il est probable que le service de géocodage de geopy interagisse mal avec SSP Cloud. Il semblerait que pour un certain nombre de requêtes, celles-ci expirent à cause d'un dépassement du temps limite. Dans ce cas là, il est préférable d'utiliser une version local de VScode. à cet effet nous avons laissé un csv du scraping sur le github (au cas où) que nous nommons "listings_no_SSP_Cloud.csv".
 
 Sources de données :
 
