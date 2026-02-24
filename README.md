@@ -1,22 +1,56 @@
-# Projet DataScience ENSAE #
-## Estimation du prix d'un bien immobilier à Paris selon ses caractéristiques ##
-### Réalisé par Maxime Chansat, Anaïs Augé et Jules Hajjar
+# Paris Real Estate Price Prediction
 
-Ce projet a pour but de construire un ou plusieurs modèles pour estimer le prix d'un bien immobilier dans la ville de Paris. Par "bien immobilier", on entend un logement destiné principalement à l'habitation (comme un appartement, une maison...).
-Afin d'obtenir des données d'annonces immobilières, nous avons procédé au webscraping du site suivant : https://www.bienici.com/. Il s'agit d'une plateforme immobilière créée par un consortium regroupant les principaux acteurs du secteur immobilier français (comme ORPI, La Forêt, Nexity, Century 21, Foncia...).
-Le projet, sous la forme d'un repo GitHub, est composé d'un notebook nommé "main.ipynb" permettant de dérouler simplement le projet ainsi que d'un script Python nommé "scraping.py" correspondant au code du webscraping de Bien'ici.
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-FF8000?logo=jupyter)
+![Selenium](https://img.shields.io/badge/Selenium-WebScraping-43B02A?logo=selenium)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-XGBoost%20%7C%20Scikit--Learn-yellow)
 
-Le scraping prenant un certain temps à réaliser sa tâche, il n'est pas exécuté dans le main.ipynb (il est appelé sous forme de commentaires), mais son code est bien entendu consultable dans "scraping.py".
-De ce fait, un fichier intermédiaire "listings.csv", correspondant au résultat du scraping, est stocké sur le Datalab du SSP Cloud d'un des membres du groupe.
+**Authors**: Maxime Chansat, Anaïs Augé, and Jules Hajjar
 
-Afin de correctement exécuter le notebook, voici les prérequis :
+## 📖 Overview
+This project aims to build predictive machine learning models to estimate the price of residential real estate properties (apartments, houses, etc.) in Paris based on their features.
 
-- Disposer des packages : selenium, webdriver_manager, chromedriver-autoinstaller, pandas, numpy, s3fs, geopy, dill, matplotlib, scipy.stats, seaborn, folium, sklearn, xgboost. Ces packages peuvent être installés en exécutant la cellule d'installation des packages sur le notebook principal.
-- Si vous êtes sur le SSP Cloud : il se peut que l'exécution du scraping produise une erreur en raison de l'OS du SSP Cloud. Ainsi, si c'est le cas pour vous, veuillez suivre les indications des commentaires des premières lignes dans le fichier "scraping.py".
-- Si vous êtes sur le SSP Cloud : Il est probable que le service de géocodage de geopy interagisse mal avec SSP Cloud. Il semblerait que pour un certain nombre de requêtes, celles-ci expirent à cause d'un dépassement du temps limite. Dans ce cas là, il est préférable d'utiliser une version local de VScode. à cet effet nous avons laissé un csv du scraping sur le github (au cas où) que nous nommons "listings_no_SSP_Cloud.csv".
+To train these models, we built a custom web scraper to collect real estate listings from [Bien'ici](https://www.bienici.com/), a major French real estate platform created by a consortium of key industry players (such as ORPI, La Forêt, Nexity, Century 21, and Foncia).
 
-Sources de données :
+## 🗂️ Project Structure
+The repository consists of two core components:
+- `main.ipynb`: The primary Jupyter Notebook walking through the entire data science pipeline (Data Exploration, Feature Engineering, Modeling, and Evaluation).
+- `scraping.py`: The Python web scraping script built on top of Selenium to extract real estate listings.
 
-- Le site Bien'ici 
-- Le service de géocodage de geopy
-- Pour l'introduction sur le marché immobilier parisien : La Chambre des Notaires de Paris : https://paris.notaires.fr
+> **Note**: For privacy and legal reasons, the pre-scraped dataset is not hosted online. You must execute `scraping.py` beforehand to generate the `listings.csv` dataset required for the main notebook pipeline to run.
+
+## ⚙️ Prerequisites & Installation
+
+To run the notebook and scripts, you need the following Python packages:
+- **Data Manipulation & Visualization**: `pandas`, `numpy`, `matplotlib`, `seaborn`, `scipy`
+- **Machine Learning**: `scikit-learn`, `xgboost`
+- **Web Scraping**: `selenium`, `webdriver_manager`, `chromedriver-autoinstaller`
+- **Geocoding & Cloud Services**: `geopy`, `folium`, `s3fs`
+- **Utilities**: `dill`
+
+You can install all required dependencies easily using the provided `requirements.txt` file:
+
+```bash
+pip install -r requirements.txt
+```
+
+## 🚀 Usage Guidelines & Known Issues
+
+### 1. Web Scraping (`scraping.py`)
+**This script must be executed first** to generate the working dataset.
+- **SSP Cloud Users**: Running Selenium on the SSP Cloud OS might produce environmental errors. If you face issues, please follow the commented bypass instructions at the very beginning of the `scraping.py` file.
+
+### 2. Geocoding Constraints (`geopy`)
+- If executing on **SSP Cloud**, you may experience timeout exceptions during bulk geocoding requests with `geopy`.
+- **Solution**: We highly recommend running the pipeline locally using an IDE such as VSCode or Jupyter on your machine to avoid these cloud-related request timeouts.
+
+## 📊 Data Sources
+- **Real Estate Listings**: [Bien'ici](https://www.bienici.com/)
+- **Address Geocoding**: `geopy` Python library
+- **Paris Market Context**: [La Chambre des Notaires de Paris](https://paris.notaires.fr)
+
+## ⚠️ Disclaimer
+**Data Usage Limitation**: The authors are not responsible for the extracted data used in this project. This scraper and pipeline are provided strictly for academic and educational purposes. When utilizing the scraper, ensure you adhere to the target website's Terms of Service and use the tool responsibly.
+
+---
+*This codebase was developed as an academic Data Science project at [ENSAE Paris](https://www.ensae.fr/).*
